@@ -25,6 +25,7 @@
     "request": "~2.78.0"
   },
   "devDependencies": {
+    "abstract-winston-transport": "^0.5.1",
     "chai": "^4.0.2",
     "mocha": "^3.4.2",
     "nock": "^9.0.13",

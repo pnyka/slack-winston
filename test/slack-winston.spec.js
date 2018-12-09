@@ -23,7 +23,7 @@ describe('Slack', function () {
       .post('/')
       .reply(200);
 
-    transport.log('info', 'TestMessage', {}, function(err, res) {
+    transport.log({level: 'info', message: 'TestMessage'}, function(err, res) {
       expect(err).to.be.eq(null);
       expect(res).to.be.eq(true);
 
@@ -42,7 +42,7 @@ describe('Slack', function () {
 
     var startedAt = new Date();
 
-    transport.log('info', 'TestMessage', {}, function(err, res) {
+    transport.log({level: 'info', message: 'TestMessage'}, function(err, res) {
       expect(err).to.be.eq(null);
       expect(res).to.be.eq(true);
 
@@ -51,4 +51,11 @@ describe('Slack', function () {
       done();
     });
   });
+
+});
+
+require('abstract-winston-transport')({
+  name: 'Slack',
+  construct: config,
+  Transport: Slack
 });
